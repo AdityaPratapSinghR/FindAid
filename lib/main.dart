@@ -19,6 +19,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'FindAid',
       initialRoute: "/",
+
+      debugShowCheckedModeBanner: false,
+
       routes: {
         "/":(context)=> mainPage(),
       },
