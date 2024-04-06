@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import'package:flutter/material.dart';
-import 'package:khojbin/widgets/similar_items_widget.dart';
+import 'package:findaid/widgets/similar_item.dart';
 
 class SimilarItemsPage extends StatefulWidget {
 
@@ -14,7 +14,8 @@ class _SimilarItemsPageState extends State<SimilarItemsPage> {
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05, vertical: MediaQuery.of(context).size.height*0.05),
+        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,
+            vertical: MediaQuery.of(context).size.height*0.05),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.grey[600],
