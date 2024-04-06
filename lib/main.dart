@@ -18,9 +18,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FindAid',
-      initialRoute: "initial",
+      initialRoute: "/",
+      debugShowCheckedModeBanner: false,
       routes: {
-        "intital":(context)=> mainPage(),
+        "/":(context)=> mainPage(),
       },
       theme: ThemeData(
         // This is the theme of your application.

@@ -1,4 +1,6 @@
+import 'package:findaid/screens/guidelines.dart';
 import 'package:findaid/screens/home.dart';
+import 'package:findaid/screens/safe.dart';
 import 'package:flutter/material.dart';
 
 class mainPage extends StatefulWidget {
