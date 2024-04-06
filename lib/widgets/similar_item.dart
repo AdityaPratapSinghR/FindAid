@@ -44,7 +44,9 @@ class SimilarItems extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height*0.01,
+                    height: orientation == Orientation.portrait
+                        ? MediaQuery.of(context).size.height*0.01
+                        : MediaQuery.of(context).size.height*0.025,
                   ),
                   Container(
                     decoration: BoxDecoration(
