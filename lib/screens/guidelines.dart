@@ -17,14 +17,6 @@ class _guidelinesState extends State<guidelines> {
         backgroundColor: appbarcolor,
         centerTitle: true,
         title: const Text("Guidelines"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.menu),
-            color: Colors.black,
-            onPressed:(){
-            },
-          ),
-        ],
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
@@ -258,7 +250,7 @@ class _guidelinesState extends State<guidelines> {
                 color: Colors.blueGrey.shade100,
                 child: const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("* Ensure that all information provided on the application, including item listings and exchange requests,"
+                  child: Text("1) Ensure that all information provided on the application, including item listings and exchange requests,"
                       " is accurate and up-to-date.",style: TextStyle(fontSize: 18,),),
                 ),
               ),
@@ -267,7 +259,7 @@ class _guidelinesState extends State<guidelines> {
                  color: Colors.blueGrey.shade100,
                 child: const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("* Respect the privacy and confidentiality of other users' information and "
+                  child: Text("2) Respect the privacy and confidentiality of other users' information and "
                       "refrain from sharing personal details without explicit consent.",style: TextStyle(fontSize: 18,),),
                 ),
               ),
@@ -276,7 +268,7 @@ class _guidelinesState extends State<guidelines> {
                 color: Colors.blueGrey.shade100,
                 child: const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("* Exercise caution when sharing personal or sensitive information with"
+                  child: Text("3) Exercise caution when sharing personal or sensitive information with"
                       " other users on the platform, and avoid disclosing financial or confidential details.",style: TextStyle(fontSize: 18,),),
                 ),
               ),
@@ -285,7 +277,7 @@ class _guidelinesState extends State<guidelines> {
                  color: Colors.blueGrey.shade100,
                 child: const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("* Engage in respectful and courteous communication with other users, "
+                  child: Text("4) Engage in respectful and courteous communication with other users, "
                       "refraining from any form of harassment, discrimination, or offensive behavior.",style: TextStyle(fontSize: 18,),),
                 ),
               ),
@@ -294,7 +286,7 @@ class _guidelinesState extends State<guidelines> {
                  color: Colors.blueGrey.shade100,
                 child: const Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("* Utilize the help and support resources provided by the application platform whenever necessary, "
+                  child: Text("5) Utilize the help and support resources provided by the application platform whenever necessary, "
                       "seeking assistance or clarification on any issues or concerns that may arise.",style: TextStyle(fontSize: 18,),),
                 ),
               ),

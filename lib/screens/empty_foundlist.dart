@@ -1,3 +1,4 @@
+import 'package:findaid/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class empty_foundlist extends StatefulWidget {
@@ -14,16 +15,10 @@ class _empty_foundlistState extends State<empty_foundlist> {
     double width =  MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xffDCDCDCFF),
+        backgroundColor: appbarcolor,
         centerTitle: true,
-        title: const Text("empty similar item list"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.menu),
-            color: Colors.black,
-            onPressed:(){},
-          ),
-        ],
+        title: const Text("Similar Lost Items"),
+
       ),
       body: SingleChildScrollView(
         child: Column(

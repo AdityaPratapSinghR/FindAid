@@ -1,3 +1,4 @@
+import 'package:findaid/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class empty_safe extends StatefulWidget {
@@ -14,16 +15,9 @@ class _empty_safeState extends State<empty_safe> {
     double width =  MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xffDCDCDCFF),
+        backgroundColor: appbarcolor,
         centerTitle: true,
-        title: const Text("empty safe"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.menu),
-            color: Colors.black,
-            onPressed:(){},
-          ),
-        ],
+        title: const Text("Safe"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -39,7 +33,7 @@ class _empty_safeState extends State<empty_safe> {
             const SizedBox(height: 30),
             const Padding(
               padding: EdgeInsets.fromLTRB(50,20,50,0),
-              child: Text('Looks like you have not added any items to the safe yet !',
+              child: Text('You have not added any items to the safe yet !',
                 style: TextStyle(fontSize: 20.0),),
             ),
 

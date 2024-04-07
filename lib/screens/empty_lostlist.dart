@@ -1,3 +1,4 @@
+import 'package:findaid/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class nosimilar_lost extends StatefulWidget {
@@ -14,16 +15,10 @@ class _nosimilar_lostState extends State<nosimilar_lost> {
     double width =  MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: const Color(0xffDCDCDCFF),
+          backgroundColor: appbarcolor,
           centerTitle: true,
-          title: const Text("empty similar lost item"),
-          actions: [
-      IconButton(
-      icon: const Icon(Icons.menu),
-      color: Colors.black,
-      onPressed:(){},
-    ),
-    ],
+          title: const Text("Similar Lost Items"),
+
     ),
     body: SingleChildScrollView(
     child: Column(
