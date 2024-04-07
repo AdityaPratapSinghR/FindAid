@@ -12,7 +12,7 @@ class description_founded extends StatefulWidget {
 }
 
 class _description_foundedState extends State<description_founded> {
-  List<String> imageUrls = ["https://sg-files.apjonlinecdn.com/landingpages/category-family/hp-laptops-family/images/w100_hero_mobile_v2.jpg","url2"];
+  List<String> imageUrls = ["https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw34d84041/images/Titan/Catalog/1698KM02_1.jpg?sw=800&sh=800","https://cdn.thewirecutter.com/wp-content/media/2023/06/bestlaptops-2048px-9765.jpg?auto=webp&quality=75&width=1024"];
   final category=TextEditingController();
   final company = TextEditingController();
   final color = TextEditingController();
@@ -244,7 +244,7 @@ class _description_foundedState extends State<description_founded> {
                   ),
                 ),
                 onTap: ()=>{
-                  addFoundItem("8990099999",category.text,company.text,color.text,company.text,description.text,"Victus",imageUrls,"User Name","74838389292","no location","83883",false),
+                 // addFoundItem("8990099999",category.text,company.text,color.text,company.text,description.text,"Victus",imageUrls,"User Name","74838389292","no location","83883",false),
                   Navigator.of(context).pushNamed(MyRoutes.similarItems)
                 },
               ),

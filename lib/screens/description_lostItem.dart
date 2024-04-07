@@ -12,7 +12,7 @@ class description_lost extends StatefulWidget {
 }
 
 class _description_lostState extends State<description_lost> {
-  List<String> imageUrls = ["url1","url2"];
+  List<String> imageUrls = ["https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw34d84041/images/Titan/Catalog/1698KM02_1.jpg?sw=800&sh=800","https://m.media-amazon.com/images/I/61Qe0euJJZL.jpg"];
   final category=TextEditingController();
   final company = TextEditingController();
   final color = TextEditingController();
@@ -243,7 +243,7 @@ class _description_lostState extends State<description_lost> {
                   ),
                 ),
                 onTap: ()=>{
-                  addLostItem("89900","Electronics",category.text,color.text,company.text,description.text,"Victus",imageUrls,"Victus","74838389292","","8999",false),
+                  //addLostItem("89900","Electronics",category.text,color.text,company.text,description.text,"Victus",imageUrls,"Victus","74838389292","","8999",false),
                   Navigator.of(context).pushNamed(MyRoutes.similarItems)
                 },
 
