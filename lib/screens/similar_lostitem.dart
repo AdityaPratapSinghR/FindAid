@@ -1,16 +1,14 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import'package:flutter/material.dart';
 import 'package:findaid/widgets/similar_item.dart';
-import 'package:findaid/mainPage.dart';
 
-class safe extends StatefulWidget {
-  const safe({super.key});
+class SimilarLostItemsPage extends StatefulWidget {
 
   @override
-  State<safe> createState() => _safeState();
+  State<SimilarLostItemsPage> createState() => _SimilarLostItemsPageState();
 }
 
-class _safeState extends State<safe> {
+class _SimilarLostItemsPageState extends State<SimilarLostItemsPage> {
   @override
   Widget build(BuildContext context) {
     final orientation =
@@ -42,7 +40,7 @@ class _safeState extends State<safe> {
                           : MediaQuery.of(context).size.height*0.1,
                       width: MediaQuery.of(context).size.width*0.7,
 
-                      child: Text("List Of Items for Security",
+                      child: Text("Similar Lost Items",
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -52,10 +50,8 @@ class _safeState extends State<safe> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('      Click to add more'),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.add_circle_outline_outlined),
-                  ),
-                  Spacer()
+                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_circle_left),),
+                  Text('Click to go back to details entry page        '),
                 ],),
               Expanded(child: ListView.builder(
                 itemCount: 2,
@@ -74,6 +70,7 @@ class _safeState extends State<safe> {
           ),
         ),
       ),
+
     );
   }
 }
