@@ -1,6 +1,10 @@
 import 'package:findaid/firebase_options.dart';
 import 'package:findaid/mainPage.dart';
+
+import 'package:findaid/screens/Description_LostItem.dart';
+
 import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
