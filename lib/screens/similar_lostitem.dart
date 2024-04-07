@@ -15,9 +15,28 @@ class _SimilarLostItemsPageState extends State<SimilarLostItemsPage> {
         MediaQuery.of(context).orientation;
     return Scaffold(
       backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        title: Align(
+          alignment: Alignment.center,
+          child: Container( decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+          ),
+            height: orientation == Orientation.portrait
+                ? MediaQuery.of(context).size.height*0.05
+                : MediaQuery.of(context).size.height*0.1,
+            width: orientation == Orientation.portrait
+                ? MediaQuery.of(context).size.width*0.7
+                : MediaQuery.of(context).size.width*0.5,
+
+            child: Text("Similar Lost Items",
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,
-            vertical: MediaQuery.of(context).size.height*0.05),
+        padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width*0.03, 0, MediaQuery.of(context).size.width*0.03, MediaQuery.of(context).size.height*0.03),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.grey[600],
@@ -26,27 +45,6 @@ class _SimilarLostItemsPageState extends State<SimilarLostItemsPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03, bottom: MediaQuery.of(context).size.height*0.015),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      height: orientation == Orientation.portrait
-                          ? MediaQuery.of(context).size.height*0.05
-                          : MediaQuery.of(context).size.height*0.1,
-                      width: MediaQuery.of(context).size.width*0.7,
-
-                      child: Text("Similar Lost Items",
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  )
-
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
