@@ -1,6 +1,7 @@
+
 import 'package:findaid/firebase_options.dart';
 import 'package:findaid/mainPage.dart';
-import 'package:findaid/screens/Description_FoundedItem.dart';
+import 'package:findaid/screens/description_foundedItem.dart';
 import 'package:findaid/screens/guidelines.dart';
 import 'package:findaid/utils/routes.dart';
 import 'package:findaid/screens/description_lostItem.dart';
@@ -60,4 +61,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-

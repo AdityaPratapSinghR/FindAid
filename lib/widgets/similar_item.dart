@@ -24,7 +24,7 @@ class SimilarItems extends StatelessWidget {
           width: MediaQuery.of(context).size.width*0.9,
           height: orientation == Orientation.portrait
               ? MediaQuery.of(context).size.height*0.22
-              : MediaQuery.of(context).size.height*0.42,
+              : MediaQuery.of(context).size.height*0.44,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -33,8 +33,8 @@ class SimilarItems extends StatelessWidget {
                     ? MediaQuery.of(context).size.height*0.20
                     : MediaQuery.of(context).size.height*0.38,
                 width: orientation == Orientation.portrait
-                    ? MediaQuery.of(context).size.width*0.35
-                    : MediaQuery.of(context).size.width*0.30,
+                    ? MediaQuery.of(context).size.width*0.38
+                    : MediaQuery.of(context).size.width*0.27,
                 child: Image.network('$itemImage',
                   fit: BoxFit.fill,
                 ),),
@@ -70,7 +70,7 @@ class SimilarItems extends StatelessWidget {
                     ),
                     height: orientation == Orientation.portrait
                         ? MediaQuery.of(context).size.height*0.15
-                        : MediaQuery.of(context).size.height*0.29,
+                        : MediaQuery.of(context).size.height*0.31,
                     width: MediaQuery.of(context).size.width*0.44,
                     child: Text("$itemDescription"),
                   )
