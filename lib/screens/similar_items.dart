@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import'package:flutter/material.dart';
 import 'package:findaid/widgets/similar_item.dart';
 
@@ -64,9 +64,6 @@ class _SimilarItemsPageState extends State<SimilarItemsPage> {
                 },
               ))
             ],
-
-
-
           ),
         ),
       ),
