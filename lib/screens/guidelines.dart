@@ -210,26 +210,32 @@ class _guidelinesState extends State<guidelines> {
               SizedBox(height: 15,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("1) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("* Ensure that all information provided on the application, including item listings and exchange requests,"
+                    " is accurate and up-to-date.",style: TextStyle(fontSize: 18,),),
               ),
               SizedBox(height: 3,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("2) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("* Respect the privacy and confidentiality of other users' information and "
+                    "refrain from sharing personal details without explicit consent.",style: TextStyle(fontSize: 18,),),
               ),
               SizedBox(height: 3,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("3) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("* Exercise caution when sharing personal or sensitive information with"
+                    " other users on the platform, and avoid disclosing financial or confidential details.",style: TextStyle(fontSize: 18,),),
               ),
               SizedBox(height: 3,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("4) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("* Engage in respectful and courteous communication with other users, "
+                    "refraining from any form of harassment, discrimination, or offensive behavior.",style: TextStyle(fontSize: 18,),),
+              ),
+              SizedBox(height: 3,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text("* Utilize the help and support resources provided by the application platform whenever necessary, "
+                    "seeking assistance or clarification on any issues or concerns that may arise.",style: TextStyle(fontSize: 18,),),
               ),
             ],
           ),
