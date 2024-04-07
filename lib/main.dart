@@ -1,10 +1,9 @@
 import 'package:findaid/firebase_options.dart';
 import 'package:findaid/mainPage.dart';
-
-import 'package:findaid/screens/Description_LostItem.dart';
-
+import 'package:findaid/screens/Description_FoundedItem.dart';
+import 'package:findaid/utils/routes.dart';
+import 'package:findaid/screens/description_lostItem.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -34,7 +33,8 @@ class _MyAppState extends State<MyApp> {
 
       routes: {
         "/":(context)=> mainPage(),
-
+        MyRoutes.foundPage:(context)=> description_founded(),
+        MyRoutes.lostPage:(context)=> description_lost(),
       },
       theme: ThemeData(
         // This is the theme of your application.

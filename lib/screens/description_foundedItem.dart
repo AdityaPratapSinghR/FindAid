@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class description_founded extends StatefulWidget {
 }
 
 class _description_foundedState extends State<description_founded> {
+  List<String> imageUrls = ["url1","url2"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -230,7 +232,7 @@ class _description_foundedState extends State<description_founded> {
                       ),
                     ),
                     onTap: ()=>{
-
+                      addFoundItem("89900","Electronics","Laptop","Black","HP","A small laptop","Victus",imageUrls,"Aditya P","74838389292",""),
                     },
 
                   ),
@@ -245,3 +247,36 @@ class _description_foundedState extends State<description_founded> {
     );
   }
 }
+
+Future<void> addFoundItem(
+    String id,
+    String category,
+    String subcategory,
+    String color,
+    String company,
+    String description,
+    String model,
+    List<String> images,
+    String founderName,
+    String founderNumber,
+    String locationData) {
+  CollectionReference foundCollection = FirebaseFirestore.instance.collection("found");
+
+  return foundCollection
+      .add({
+    'id': id,
+    'category': category,
+    'subcategory': subcategory,
+    'company': company,
+    'model': model,
+    'color': color,
+    'description': description,
+    'images':images,
+    'founderName':founderName,
+    'founderNumber':founderNumber,
+    "location":locationData
+  })
+      .then((value) => print("Data added successfully!"))
+      .catchError((error) => print("Failed to add Data: $error"));
+}
+
