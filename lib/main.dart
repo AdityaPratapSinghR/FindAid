@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
 
       routes: {
-        "/": (context) => mainPage(),
+        "/":(context)=> mainPage(),
 
       },
       theme: ThemeData(
