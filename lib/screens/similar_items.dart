@@ -1,4 +1,5 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import'package:flutter/material.dart';
 import 'package:findaid/widgets/similar_item.dart';
 
@@ -68,4 +69,16 @@ class _SimilarItemsPageState extends State<SimilarItemsPage> {
 
     );
   }
+}
+Future<void> queryLost(String color, String company,String model){
+  CollectionReference lost = FirebaseFirestore.instance.collection('lost');
+  return
+  lost.where('color',isEqualTo:color)
+      .where('company',isEqualTo: company)
+      .where('model',isEqualTo: model)
+      .get().then((QuerySnapshot snapshot) {
+    snapshot.docs.forEach((doc) {
+      print('${doc.id} => ${doc.data()}');
+      });
+    }).catchError((error) => print("Failed to fetch data: $error"));
 }
