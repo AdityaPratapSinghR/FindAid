@@ -1,7 +1,13 @@
+import 'package:findaid/firebase_options.dart';
 import 'package:findaid/mainPage.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(const MyApp());
 }
 
@@ -24,6 +30,7 @@ class _MyAppState extends State<MyApp> {
 
       routes: {
         "/":(context)=> mainPage(),
+
       },
       theme: ThemeData(
         // This is the theme of your application.
@@ -46,4 +53,8 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5ffaea77a0809f956287e5cf448ef95e5a2278e6
