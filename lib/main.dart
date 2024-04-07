@@ -1,5 +1,8 @@
 import 'package:findaid/firebase_options.dart';
 import 'package:findaid/mainPage.dart';
+import 'package:findaid/screens/Description_FoundedItem.dart';
+import 'package:findaid/utils/routes.dart';
+import 'package:findaid/screens/description_lostItem.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +33,8 @@ class _MyAppState extends State<MyApp> {
 
       routes: {
         "/":(context)=> mainPage(),
-
+        MyRoutes.foundPage:(context)=> description_founded(),
+        MyRoutes.lostPage:(context)=> description_lost(),
       },
       theme: ThemeData(
         // This is the theme of your application.
@@ -53,8 +57,5 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 5ffaea77a0809f956287e5cf448ef95e5a2278e6
+
