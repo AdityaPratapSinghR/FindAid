@@ -113,8 +113,8 @@ Future<List<Items>> queryLost(
           model: doc['model'],
           color: doc['color'],
           description: doc['description'],
-          name: doc['name'],
-          number: doc['number'],
+          name: "",
+          number: "",
           images: doc['images'],
           lastLocation: doc['lostLocation']);
       items.add(item);
