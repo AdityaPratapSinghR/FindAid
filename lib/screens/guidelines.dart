@@ -158,26 +158,38 @@ class _guidelinesState extends State<guidelines> {
               SizedBox(height: 15,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("1) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("To conduct a smooth item exchange process on the application, please adhere to the following guidelines:",
+                  style: TextStyle(fontSize: 18,),),
               ),
-              SizedBox(height: 3,),
+              SizedBox(height: 10,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("2) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("1) Facilitate open and transparent communication to address any concerns "
+                    "or discrepancies regarding the items being exchanged throughout the exchange process.",style: TextStyle(fontSize: 18,),),
               ),
-              SizedBox(height: 3,),
+              SizedBox(height: 10,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("3) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("2) Arrange a mutually agreeable meeting point for the exchange, ensuring it is safe and convenient for both parties involved.",
+                  style: TextStyle(fontSize: 18,),),
               ),
-              SizedBox(height: 3,),
+              SizedBox(height: 10,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("4) kjahs asf afdg  fghg a rfssh  sdfgsd  dsfgsd sdfg sdfg d f"
-                    "g sdg  sdgsgdsg ds gds g dsg ds gd gdsgsty e ty ry uyu  yu ndf",style: TextStyle(fontSize: 18,),),
+                child: Text("3)Thoroughly inspect the items to be exchanged to confirm their condition and authenticity,"
+                    " adhering to the descriptions provided during registration.",style: TextStyle(fontSize: 18,),),
+              ),
+              SizedBox(height: 10,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text("4)Finalize the exchange by mutually agreeing upon the transfer of ownership and completing any necessary documentation or formalities.",
+                  style: TextStyle(fontSize: 18,),),
+              ),
+              SizedBox(height: 10,),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text("5)Maintain respect and honesty throughout the exchange process to foster trust and satisfaction for both parties involved.",
+                  style: TextStyle(fontSize: 18,),),
               ),
 
               SizedBox(height: 20,),
