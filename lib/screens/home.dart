@@ -1,4 +1,5 @@
 
+import 'package:findaid/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 class home extends StatefulWidget {
@@ -72,7 +73,7 @@ class _homeState extends State<home> {
                       ),
                     ),
                     onTap:()=>{
-
+                      Navigator.of(context).pushNamed(MyRoutes.lostPage),
                     },
                   ),
                   SizedBox(height: 20,),
@@ -110,7 +111,7 @@ class _homeState extends State<home> {
                       ),
                     ),
                     onTap:()=>{
-
+                      Navigator.of(context).pushNamed(MyRoutes.foundPage),
                     },
                   ),
                   SizedBox(height: 20,),

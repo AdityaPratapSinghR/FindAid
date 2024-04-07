@@ -14,7 +14,7 @@ class _foundItemState extends State<foundItem> {
     return Scaffold(
       body: SafeArea(
         child: InkWell(child: Text("Send"),
-        onTap: ()=>addFoundItem("89900","Electronics","Laptop","Black","HP","A small laptop","Victus",imageUrls,"Aditya P","74838389292"),),
+        onTap: ()=>addFoundItem("89900","Electronics","Laptop","Black","HP","A small laptop","Victus",imageUrls,"Aditya P","74838389292",""),),
       ),
     );
   }
@@ -30,7 +30,8 @@ Future<void> addFoundItem(
     String model,
     List<String> images,
     String founderName,
-    String founderNumber) {
+    String founderNumber,
+    String locationData) {
   CollectionReference foundCollection = FirebaseFirestore.instance.collection("found");
 
   return foundCollection
@@ -44,7 +45,8 @@ Future<void> addFoundItem(
     'description': description,
     'images':images,
     'founderName':founderName,
-    'founderNumber':founderNumber
+    'founderNumber':founderNumber,
+    "location":locationData
   })
       .then((value) => print("Data added successfully!"))
       .catchError((error) => print("Failed to add Data: $error"));
