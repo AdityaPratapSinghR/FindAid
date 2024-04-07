@@ -1,4 +1,5 @@
 
+import 'package:findaid/utils/colors.dart';
 import 'package:findaid/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -18,18 +19,12 @@ class _homeState extends State<home> {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: backgroundcolor,
       appBar: AppBar(
-        backgroundColor: Color(0xffDCDCDCFF),
+        backgroundColor: appbarcolor,
         centerTitle: true,
-        title: Text("App"),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.menu),
-            color: Colors.black,
-            onPressed:(){
-            },
-          ),
-        ],
+        title: Text("FindAid!",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
+
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -45,12 +40,12 @@ class _homeState extends State<home> {
                     height: 50,
                     width: 300,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade500,
+                      color: boxcolor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Text("Welcome...",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 30),),
+                      child: Text("Welcomes...",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 30),),
                     ),
                   ),
                   SizedBox(height: 70,),
