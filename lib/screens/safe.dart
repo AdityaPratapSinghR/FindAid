@@ -53,6 +53,7 @@ class _safeState extends State<safe> {
                   )
 
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
