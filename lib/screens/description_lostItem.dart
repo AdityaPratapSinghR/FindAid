@@ -271,6 +271,7 @@ Future<void> addLostItem(
     bool isClaimed) {
   CollectionReference lostCollection = FirebaseFirestore.instance.collection("lost");
 
+
   return lostCollection
       .add({
     'id': id,
