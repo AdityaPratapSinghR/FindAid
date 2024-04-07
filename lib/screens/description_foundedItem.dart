@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:findaid/utils/colors.dart';
+import 'package:findaid/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,12 @@ class description_founded extends StatefulWidget {
 }
 
 class _description_foundedState extends State<description_founded> {
-  List<String> imageUrls = ["url1","url2"];
+  List<String> imageUrls = ["https://sg-files.apjonlinecdn.com/landingpages/category-family/hp-laptops-family/images/w100_hero_mobile_v2.jpg","url2"];
+  final category=TextEditingController();
+  final company = TextEditingController();
+  final color = TextEditingController();
+  final description = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -18,7 +25,7 @@ class _description_foundedState extends State<description_founded> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffDCDCDCFF),
+        backgroundColor: appbarcolor,
         centerTitle: true,
         title: Text("Details Entry"),
         actions: [
@@ -30,11 +37,11 @@ class _description_foundedState extends State<description_founded> {
           ),
         ],
       ),
-      backgroundColor: Colors.grey.shade500,
+      backgroundColor: backgroundcolor,
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-
+          color: Colors.grey.shade500,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,9 +71,10 @@ class _description_foundedState extends State<description_founded> {
                         color: Colors.white,
                       ),
                     ),
-                    hintStyle: TextStyle( ),
-                    hintText: "Electronics, clothing, Vehicle, Sports, etc."
+                    hintStyle: TextStyle(),
+                    hintText: "Laptop, Phone, Watch.."
                 ),
+                controller: category,
               ),
 
               SizedBox(height: 10,),
@@ -96,8 +104,9 @@ class _description_foundedState extends State<description_founded> {
                       ),
                     ),
                     hintStyle: TextStyle( ),
-                    hintText: "Mobilephone, Laptop, Football, Vehicle type"
+                    hintText: "HP, Dell, Vivo.."
                 ),
+                controller: company,
               ),
               SizedBox(height: 10,),
               // Third block
@@ -128,6 +137,7 @@ class _description_foundedState extends State<description_founded> {
                     hintStyle: TextStyle( ),
                     hintText: "Red, Blue, Green etc."
                 ),
+                controller: color,
               ),
 
               SizedBox(height: 10,),
@@ -215,6 +225,7 @@ class _description_foundedState extends State<description_founded> {
                     hintStyle: TextStyle( ),
                     hintText: "Anything partiular about your Item"
                 ),
+                controller: description,
               ),
               SizedBox(height: 30,),
 
@@ -233,9 +244,9 @@ class _description_foundedState extends State<description_founded> {
                   ),
                 ),
                 onTap: ()=>{
-                  addFoundItem("89900","Electronics","Laptop","Black","HP","A small laptop","Victus",imageUrls,"Aditya P","74838389292",""),
+                  addFoundItem("8990099999",category.text,company.text,color.text,company.text,description.text,"Victus",imageUrls,"User Name","74838389292","no location","83883",false),
+                  Navigator.of(context).pushNamed(MyRoutes.similarItems)
                 },
-
               ),
             ],
           ),
@@ -256,7 +267,9 @@ Future<void> addFoundItem(
     List<String> images,
     String founderName,
     String founderNumber,
-    String locationData) {
+    String locationData,
+    String claimId,
+    bool isClaimed) {
   CollectionReference foundCollection = FirebaseFirestore.instance.collection("found");
 
   return foundCollection
@@ -269,9 +282,11 @@ Future<void> addFoundItem(
     'color': color,
     'description': description,
     'images':images,
-    'founderName':founderName,
-    'founderNumber':founderNumber,
-    "location":locationData
+    'name':founderName,
+    'number':founderNumber,
+    "location":locationData,
+    'claimId': claimId,
+    'isClaimed': isClaimed
   })
       .then((value) => print("Data added successfully!"))
       .catchError((error) => print("Failed to add Data: $error"));

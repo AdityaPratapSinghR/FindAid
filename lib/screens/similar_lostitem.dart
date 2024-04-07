@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:findaid/items.dart';
+import 'package:findaid/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import'package:flutter/material.dart';
 import 'package:findaid/widgets/similar_item.dart';
@@ -14,7 +17,7 @@ class _SimilarLostItemsPageState extends State<SimilarLostItemsPage> {
     final orientation =
         MediaQuery.of(context).orientation;
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: backgroundcolor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,
             vertical: MediaQuery.of(context).size.height*0.05),
@@ -53,16 +56,33 @@ class _SimilarLostItemsPageState extends State<SimilarLostItemsPage> {
                   IconButton(onPressed: () {}, icon: Icon(Icons.arrow_circle_left),),
                   Text('Click to go back to details entry page        '),
                 ],),
-              Expanded(child: ListView.builder(
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return SimilarItems(
-                    itemDescription: "found a watch",
-                    itemName: "watch",
-                    itemImage: 'https://picsum.photos/250?image=9',
-                  );
+              Expanded(child:
+              FutureBuilder(
+                future: queryFound("Black", "HP", "Victus"),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Items>> snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: snapshot.data?.length,
+                      itemBuilder: (context, index) {
+                        print(snapshot.data![index].name);
+                        return new SimilarItems(
+                          itemDescription: snapshot.data![index].description,
+                          itemName:
+                          "${snapshot.data![index].name} ${snapshot.data![index].model}",
+                          itemImage: snapshot.data![index].images[0],
+                        );
+                      },
+                    );
+                  } else if (snapshot.hasError) {
+                    return new Text("${snapshot.error}");
+                  }
+
+                  // By default, show a loading spinner
+                  return new CircularProgressIndicator();
                 },
-              ))
+              ),
+              ),
             ],
 
 
@@ -73,4 +93,33 @@ class _SimilarLostItemsPageState extends State<SimilarLostItemsPage> {
 
     );
   }
+}
+Future<List<Items>> queryFound(
+    String color, String company, String model) async {
+  List<Items> items = [];
+  CollectionReference lost = FirebaseFirestore.instance.collection('found');
+  lost
+
+      .get()
+      .then((QuerySnapshot snapshot) {
+    snapshot.docs.forEach((doc) {
+      print('${doc.id} => ${doc.data()}');
+      Items item = Items(
+          docId: doc.id,
+          id: doc['id'],
+          category: doc['category'],
+          subCategory: doc['subcategory'],
+          company: doc['company'],
+          model: doc['model'],
+          color: doc['color'],
+          description: doc['description'],
+          name: doc['name'],
+          number: doc['number'],
+          images: doc['images'],
+          lastLocation: doc['lostLocation']);
+      items.add(item);
+    });
+  }).catchError((error) => print("Failed to fetch data: $error"));
+
+  return items;
 }

@@ -45,7 +45,7 @@ class _homeState extends State<home> {
                     ),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Text("Welcomes...",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 30),),
+                      child: Text("Welcome...",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontSize: 30),),
                     ),
                   ),
                   SizedBox(height: 70,),

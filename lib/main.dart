@@ -2,6 +2,8 @@ import 'package:findaid/firebase_options.dart';
 import 'package:findaid/mainPage.dart';
 import 'package:findaid/screens/Description_FoundedItem.dart';
 import 'package:findaid/screens/guidelines.dart';
+import 'package:findaid/screens/similar_items.dart';
+import 'package:findaid/screens/similar_lostitem.dart';
 import 'package:findaid/utils/routes.dart';
 import 'package:findaid/screens/description_lostItem.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -37,6 +39,8 @@ class _MyAppState extends State<MyApp> {
         MyRoutes.foundPage:(context)=> description_founded(),
         MyRoutes.lostPage:(context)=> description_lost(),
         MyRoutes.guidelines:(context)=> guidelines(),
+        MyRoutes.similarItems:(context)=> SimilarItemsPage(),
+        MyRoutes.similarLostItems:(context)=> SimilarLostItemsPage(),
       },
       theme: ThemeData(
         // This is the theme of your application.

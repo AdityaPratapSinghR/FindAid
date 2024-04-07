@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:findaid/utils/colors.dart';
+import 'package:findaid/utils/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,10 @@ class description_lost extends StatefulWidget {
 
 class _description_lostState extends State<description_lost> {
   List<String> imageUrls = ["url1","url2"];
+  final category=TextEditingController();
+  final company = TextEditingController();
+  final color = TextEditingController();
+  final description = TextEditingController();
   @override
   Widget build(BuildContext context) {
 
@@ -19,7 +25,7 @@ class _description_lostState extends State<description_lost> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xffDCDCDCFF),
+        backgroundColor: appbarcolor,
         centerTitle: true,
         title: Text("Details Entry"),
         actions: [
@@ -31,7 +37,7 @@ class _description_lostState extends State<description_lost> {
           ),
         ],
       ),
-      backgroundColor: Colors.grey.shade500,
+      backgroundColor: backgroundcolor,
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
@@ -65,8 +71,9 @@ class _description_lostState extends State<description_lost> {
                     ),
                   ),
                   hintStyle: TextStyle( ),
-                  hintText: "Electronics, clothing, Vehicle, Sports, etc."
+                  hintText: "Laptop, Phone, Watch.."
                 ),
+                controller: category,
               ),
 
               SizedBox(height: 10,),
@@ -96,8 +103,9 @@ class _description_lostState extends State<description_lost> {
                       ),
                     ),
                     hintStyle: TextStyle( ),
-                    hintText: "Mobilephone, Laptop, Football, Vehicle type"
+                    hintText: "HP, Dell, Vivo.."
                 ),
+                controller: company,
               ),
               SizedBox(height: 10,),
               // Third block
@@ -128,6 +136,7 @@ class _description_lostState extends State<description_lost> {
                     hintStyle: TextStyle( ),
                     hintText: "Red, Blue, Green etc."
                 ),
+                controller: color,
               ),
 
               SizedBox(height: 10,),
@@ -215,6 +224,7 @@ class _description_lostState extends State<description_lost> {
                     hintStyle: TextStyle( ),
                     hintText: "Anything partiular about your Item"
                 ),
+                controller: description,
               ),
               SizedBox(height: 30,),
 
@@ -233,7 +243,8 @@ class _description_lostState extends State<description_lost> {
                   ),
                 ),
                 onTap: ()=>{
-                  addLostItem("89900","Electronics","Laptop","Black","HP","A small laptop","Victus",imageUrls,"Aditya P","74838389292","Near Mantu Mess"),
+                  addLostItem("89900","Electronics",category.text,color.text,company.text,description.text,"Victus",imageUrls,"Victus","74838389292","","8999",false),
+                  Navigator.of(context).pushNamed(MyRoutes.similarItems)
                 },
 
               ),
@@ -255,7 +266,9 @@ Future<void> addLostItem(
     List<String> images,
     String name,
     String number,
-    String lostLocation) {
+    String lostLocation,
+    String claimId,
+    bool isClaimed) {
   CollectionReference lostCollection = FirebaseFirestore.instance.collection("lost");
 
   return lostCollection
@@ -268,9 +281,11 @@ Future<void> addLostItem(
     'color': color,
     'description': description,
     'images':images,
-    'founderName':name,
-    'founderNumber':number,
+    'name':name,
+    'number':number,
     'lostLocation':lostLocation,
+    'claimId': claimId,
+    'isClaimed': isClaimed
   })
       .then((value) => print("Data added successfully!"))
       .catchError((error) => print("Failed to add Data: $error"));

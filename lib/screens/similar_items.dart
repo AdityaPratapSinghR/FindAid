@@ -1,24 +1,26 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import'package:flutter/material.dart';
+import 'package:findaid/items.dart';
+import 'package:findaid/screens/similar_items.dart';
+import 'package:findaid/utils/colors.dart';
+import 'package:flutter/material.dart';
 import 'package:findaid/widgets/similar_item.dart';
 
 class SimilarItemsPage extends StatefulWidget {
-
   @override
   State<SimilarItemsPage> createState() => _SimilarItemsPageState();
 }
 
 class _SimilarItemsPageState extends State<SimilarItemsPage> {
+
   @override
   Widget build(BuildContext context) {
-    final orientation =
-        MediaQuery.of(context).orientation;
+    final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: backgroundcolor,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,
-            vertical: MediaQuery.of(context).size.height*0.05),
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.05,
+            vertical: MediaQuery.of(context).size.height * 0.05),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.grey[600],
@@ -30,57 +32,94 @@ class _SimilarItemsPageState extends State<SimilarItemsPage> {
               Align(
                   alignment: Alignment.topCenter,
                   child: Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03, bottom: MediaQuery.of(context).size.height*0.015),
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.03,
+                        bottom: MediaQuery.of(context).size.height * 0.015),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       height: orientation == Orientation.portrait
-                          ? MediaQuery.of(context).size.height*0.05
-                          : MediaQuery.of(context).size.height*0.1,
-                      width: MediaQuery.of(context).size.width*0.7,
-
-                      child: Text("Similar Founded Items",
+                          ? MediaQuery.of(context).size.height * 0.05
+                          : MediaQuery.of(context).size.height * 0.1,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: Text(
+                        "Similar Founded Items",
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  )
-
-              ),
+                  )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_circle_left),),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.arrow_circle_left),
+                  ),
                   Text('Click to go back to details entry page        '),
-                ],),
-              Expanded(child: ListView.builder(
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return SimilarItems(
-                    itemDescription: "found a watch",
-                    itemName: "watch",
-                    itemImage: 'https://picsum.photos/250?image=9',
-                  );
-                },
-              ))
+                ],
+              ),
+              Expanded(
+                child: FutureBuilder(
+                  future: queryLost("Black", "HP", "Victus"),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<List<Items>> snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: snapshot.data?.length,
+                        itemBuilder: (context, index) {
+                          print(snapshot.data![index].name);
+                          return new SimilarItems(
+                            itemDescription: snapshot.data![index].description,
+                            itemName:
+                            "${snapshot.data![index].name} ${snapshot.data![index].model}",
+                            itemImage: snapshot.data![index].images[0],
+                          );
+                        },
+                      );
+                    } else if (snapshot.hasError) {
+                      return new Text("${snapshot.error}");
+                    }
+
+                    // By default, show a loading spinner
+                    return new CircularProgressIndicator();
+                  },
+                ),
+              ),
             ],
           ),
         ),
       ),
-
     );
   }
 }
-Future<void> queryLost(String color, String company,String model){
+
+Future<List<Items>> queryLost(
+    String color, String company, String model) async {
+  List<Items> items = [];
   CollectionReference lost = FirebaseFirestore.instance.collection('lost');
-  return
-  lost.where('color',isEqualTo:color)
-      .where('company',isEqualTo: company)
-      .where('model',isEqualTo: model)
-      .get().then((QuerySnapshot snapshot) {
+  lost
+      .get()
+      .then((QuerySnapshot snapshot) {
     snapshot.docs.forEach((doc) {
       print('${doc.id} => ${doc.data()}');
-      });
-    }).catchError((error) => print("Failed to fetch data: $error"));
+      Items item = Items(
+          docId: doc.id,
+          id: doc['id'],
+          category: doc['category'],
+          subCategory: doc['subcategory'],
+          company: doc['company'],
+          model: doc['model'],
+          color: doc['color'],
+          description: doc['description'],
+          name: doc['name'],
+          number: doc['number'],
+          images: doc['images'],
+          lastLocation: doc['lostLocation']);
+      items.add(item);
+    });
+  }).catchError((error) => print("Failed to fetch data: $error"));
+
+  return items;
 }

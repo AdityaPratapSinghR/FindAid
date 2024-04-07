@@ -1,3 +1,4 @@
+import 'package:findaid/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:findaid/widgets/similar_item.dart';
@@ -13,16 +14,19 @@ class safe extends StatefulWidget {
 class _safeState extends State<safe> {
   @override
   Widget build(BuildContext context) {
+    List<SimilarItems> lists = [SimilarItems(itemName: "Rolex Watch", itemDescription: "A green rolex watch", itemImage:"https://cdn2.chrono24.com/images/uhren/25614084-279uvoi63jb9c5lfv78zbnfj-ExtraLarge.jpg"),
+      SimilarItems(itemName: "Apple Macbook", itemDescription: "A black apple macbook pro", itemImage:"https://9to5mac.com/wp-content/uploads/sites/6/2023/11/macbook-pro-space-black0000.jpg?quality=82&strip=all&w=1600"),
+      SimilarItems(itemName: "Apple Iphone", itemDescription: "A black apple iphone", itemImage:"https://ik.imagekit.io/3dqckpw4d/upload/iphone_12___Black1657182277iphone-12-black.png")];
     final orientation =
         MediaQuery.of(context).orientation;
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: backgroundcolor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05,
             vertical: MediaQuery.of(context).size.height*0.05),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.grey[600],
+            color: appbarcolor,
             borderRadius: BorderRadius.circular(5),
           ),
           child: Column(
@@ -58,12 +62,12 @@ class _safeState extends State<safe> {
                   Spacer()
                 ],),
               Expanded(child: ListView.builder(
-                itemCount: 2,
+                itemCount: lists.length,
                 itemBuilder: (context, index) {
                   return SimilarItems(
-                    itemDescription: "found a watch",
-                    itemName: "watch",
-                    itemImage: 'https://picsum.photos/250?image=9',
+                    itemDescription: lists[index].itemDescription,
+                    itemName: lists[index].itemName,
+                    itemImage: lists[index].itemImage,
                   );
                 },
               ))

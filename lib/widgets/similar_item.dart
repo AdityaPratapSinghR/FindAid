@@ -35,7 +35,7 @@ class SimilarItems extends StatelessWidget {
                 width: orientation == Orientation.portrait
                     ? MediaQuery.of(context).size.width*0.35
                     : MediaQuery.of(context).size.width*0.30,
-                child: Image.network('$itemImage',
+                child: Image.network(Uri.parse('$itemImage').toString(),
                   fit: BoxFit.fill,
                 ),),
               SizedBox(
