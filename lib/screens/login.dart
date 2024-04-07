@@ -1,3 +1,4 @@
+import 'package:findaid/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class login extends StatefulWidget {
@@ -14,19 +15,19 @@ class _loginState extends State<login> {
     double width =  MediaQuery.of(context).size.width;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.grey[800],
+        backgroundColor:backgroundcolor,
         body: SafeArea(
         child: SingleChildScrollView(
         child: Center(
         child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 100),
     child: Container(
-    height: 600,
+    height: 450,
     width: 300,
     padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
     decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(12.0),
-    color: Colors.grey[600],
+    color: boxcolor,
     ),
     child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +35,7 @@ class _loginState extends State<login> {
     children: [
     const Row(mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
-    Text('KhojBin',style: TextStyle(fontSize: 30.0),)
+    Text('FindAid',style: TextStyle(fontSize: 30.0),)
     ],
     ),
     const Padding(
@@ -42,7 +43,7 @@ class _loginState extends State<login> {
     child: Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
-    Text('Username'),
+    Text('Phone Number'),
     ],
     ),
     ),
